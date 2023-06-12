@@ -18,8 +18,11 @@ async function getRealUsername(bot, messagepart) {
     bot.chat("/erealname " + toERN)
     await new Promise(resolve => setTimeout(resolve, 300)); // hacky - wait 300 ms before reading the message buffer
     const realName = bot.systemMessageBuffer.at(-1).split(" ").at(-1)
+    if (realName == "found." || realName == "command.") {
+        return null
+    }
     bot.knownNicknames.set(toERN, realName) // TODO: CACHE INVALIDATION!!!
-    return (realName)
+    return realName
 }
 
 module.exports = {
