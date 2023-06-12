@@ -25,6 +25,18 @@ async function getRealUsername(bot, messagepart) {
     return realName
 }
 
+/**
+ * Find if a nickname is the bot owner.
+ * This function is trivial if you already have a real username.
+ * @param {import("mineflayer").Bot} bot 
+ * @param {string} nickname 
+ */
+async function nickIsBotOwner(bot, nickname) {
+    value = await util.getRealUsername(bot, nickname)
+    return (value == bot.config.owner)
+}
+
 module.exports = {
     getRealUsername: getRealUsername,
+    nickIsBotOwner: nickIsBotOwner
 }
