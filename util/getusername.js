@@ -13,7 +13,7 @@ async function getRealUsername(bot, messagepart) {
     //const toERN = messagepart.split(" ").at(-1)
     //console.log(messagepart)
     //console.log
-    const toERN = messagepart.split(" ").at(-1)
+    const toERN = messagepart.split(" ").at(-1).substring(0, 50) // prevent sending a massive message
     const cached = bot.knownNicknames.get(toERN) || undefined
     if (cached) {
         return cached
