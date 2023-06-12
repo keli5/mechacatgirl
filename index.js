@@ -92,7 +92,6 @@ function loadCommands(bot) {
         loadedCommands++;
         loadedCommandNames.push(commandName)
     })
-    console.log(bot.commands)
     return {
         "amount": loadedCommands,
         "names": loadedCommandNames
