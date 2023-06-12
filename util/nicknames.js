@@ -32,7 +32,7 @@ async function getRealUsername(bot, messagepart) {
  * @param {string} nickname 
  */
 async function nickIsBotOwner(bot, nickname) {
-    value = await util.getRealUsername(bot, nickname)
+    value = await getRealUsername(bot, nickname)
     return (value == bot.config.owner)
 }
 
