@@ -41,11 +41,11 @@ rl.on("line", (line) => {
 
 bot.on('message', async (json, pos) => {
     console.log(json.toAnsi())
-    message = json.toString().split("» ")[1];
     if (pos == "system") {
-        if ()
+        if (json.toString().startsWith("[Discord]")) return;
         return bot.systemMessageBuffer.push(json.toString());
     }
+    message = json.toString().split("» ")[1];
     if (pos != "chat") return;
     if (!message.startsWith(PREFIX)) return;
 
