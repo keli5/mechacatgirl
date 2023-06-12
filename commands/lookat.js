@@ -2,7 +2,8 @@ const util = require("../util/nicknames")
 
 module.exports = {
     name: 'lookat',
-    description: 'example command',
+    description: 'look at the sender or a specific person',
+    usage: "[user]",
     async execute(bot, message, args, senderNickname) {
         targetname = (await util.getRealUsername(bot, args[0] || senderNickname)) || args[0]
         targetname = targetname.toLowerCase()

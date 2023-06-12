@@ -2,7 +2,7 @@ const util = require("../util/nicknames")
 
 module.exports = {
     name: 'reload',
-    description: 'example command',
+    description: 'reload bot commands',
     async execute(bot, message, args, senderNickname) {
         owner = await util.nickIsBotOwner(bot, senderNickname)
         if (!owner) return bot.chat("&cYou must be owner to use this command!")

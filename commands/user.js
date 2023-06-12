@@ -2,7 +2,7 @@ const util = require("../util/nicknames")
 
 module.exports = {
     name: 'user',
-    description: 'example command',
+    description: 'getRealUsername test command',
     async execute(bot, message, args, senderNickname) {
         /*util.getRealUsername(bot, args[0] || senderNickname).then(value => {
             value ? bot.chat(value) : bot.chat("&cNo user found!")

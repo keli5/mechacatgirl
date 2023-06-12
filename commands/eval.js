@@ -2,7 +2,8 @@ const util = require("../util/nicknames")
 
 module.exports = {
     name: 'eval',
-    description: 'example command',
+    description: 'evaluate javascript code',
+    usage: "<js code>",
     async execute(bot, message, args, senderNickname) {
         return bot.chat("&cDisabled")
         owner = await util.nickIsBotOwner(bot, senderNickname)

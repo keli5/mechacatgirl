@@ -2,7 +2,7 @@ const execSync = require("child_process").execSync
 
 module.exports = {
     name: 'info',
-    description: 'example command',
+    description: 'view some basic information about the bot',
     async execute(bot, message, args) {
         const revHash = execSync("git rev-parse --short HEAD")
             .toString()
