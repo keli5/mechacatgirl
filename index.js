@@ -42,7 +42,10 @@ rl.on("line", (line) => {
 bot.on('message', async (json, pos) => {
     console.log(json.toAnsi())
     message = json.toString().split("» ")[1];
-    if (pos == "system") return bot.systemMessageBuffer.push(json.toString());
+    if (pos == "system") {
+        if ()
+        return bot.systemMessageBuffer.push(json.toString());
+    }
     if (pos != "chat") return;
     if (!message.startsWith(PREFIX)) return;
 
@@ -95,4 +98,8 @@ bot.loadCommands = loadCommands;
 bot.on("login", () => {
     var cmdInfo = loadCommands(bot)
     return console.log(`Loaded ${cmdInfo.amount} commands...`)
+})
+
+bot.on("end", () => {
+    exit(1)
 })
