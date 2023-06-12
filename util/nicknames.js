@@ -32,7 +32,7 @@ async function getRealUsername(bot, messagepart, use_cache = true) {
  * @param {string} nickname 
  */
 async function nickIsBotOwner(bot, nickname) {
-    value = await getRealUsername(bot, nickname)
+    value = await getRealUsername(bot, nickname, false) // don't trust the cache here
     return (value == bot.config.owner)
 }
 
