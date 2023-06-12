@@ -7,12 +7,9 @@ module.exports = {
         const revHash = execSync("git rev-parse --short HEAD")
             .toString()
             .trim()
-        const remote  = execSync("git config --get remote.origin.url")
+        const commitMade = execSync("git show -s --format=%ar " + revHash)
             .toString()
             .trim()
-            .replace("https://", "") // no embed 
-            .replace(".git", "")
-
-        bot.chat(`username: &a${bot.username}&f ○ commit &a${revHash} &f○ &a${remote}`)
+        bot.chat(`username: &a${bot.username}&f ○ commit &a${revHash} (&a${commitMade})`)
     }
 }
