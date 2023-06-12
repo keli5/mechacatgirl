@@ -47,6 +47,9 @@ bot.on('message', async (json, pos) => {
     }
     message = json.toString().split("» ")[1];
     if (pos != "chat") return;
+    if (message == "meow" && Math.random() < 0.1) {
+        bot.chat("meow")
+    }
     if (!message.startsWith(PREFIX)) return;
 
     const args = message.slice(PREFIX.length).split(/ +/);
