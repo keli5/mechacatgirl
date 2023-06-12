@@ -45,7 +45,10 @@ bot.on('message', async (json, pos) => {
         if (json.toString().startsWith("[Discord]")) return;
         return bot.systemMessageBuffer.push(json.toString());
     }
-    message = json.toString().split("» ")[1];
+    if ((json.toString().match(/»/g)||[]).length >= 2) return; // hacky way of stopping
+                                                               // whatever tf lily did
+    message = json.toString().split("» ")[1];                  // TODO: get better?
+
     if (pos != "chat") return;
     if (message == "meow" && Math.random() < 0.1) {
         bot.chat("meow")
