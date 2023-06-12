@@ -4,7 +4,7 @@ module.exports = {
     name: 'lookat',
     description: 'example command',
     async execute(bot, message, args, senderNickname) {
-        targetname = await util.getRealUsername(bot, args[0] || senderNickname)
+        targetname = (await util.getRealUsername(bot, args[0] || senderNickname)) || args[0]
         targetname = targetname.toLowerCase()
         targetEntity = null;
         for (const [id, ent] of Object.entries(bot.entities)) {
