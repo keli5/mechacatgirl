@@ -2,7 +2,7 @@ const mineflayer = require("mineflayer")
 const fs = require("fs")
 const readline = require("readline")
 const exit = require("process").exit
-const util = require("./util/getusername")
+const util = require("./util/nicknames")
 const config = require("./config.json")
 
 const PREFIX = config.prefix

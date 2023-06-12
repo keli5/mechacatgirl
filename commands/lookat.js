@@ -1,4 +1,4 @@
-const util = require("../util/getusername")
+const util = require("../util/nicknames")
 
 module.exports = {
     name: 'lookat',
