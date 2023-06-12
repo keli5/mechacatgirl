@@ -1,0 +1,30 @@
+const mineflayer = import("mineflayer")
+
+/**
+ * Get the real username from a TFM chat message.
+ * @param {import("mineflayer").Bot} bot 
+ * @param {string} messagepart Everything before the >> of a TFM message
+ */
+
+    //user = await util.getRealUsername(bot, json.toString().split("» ")[0])
+    //console.log(user)
+    
+async function getRealUsername(bot, messagepart) {
+    //const toERN = messagepart.split(" ").at(-1)
+    //console.log(messagepart)
+    //console.log
+    const toERN = messagepart.split(" ").at(-1)
+    const cached = bot.knownNicknames.get(toERN) || undefined
+    if (cached) {
+        return cached
+    }
+    bot.chat("/erealname " + toERN)
+    await new Promise(resolve => setTimeout(resolve, 300)); // hacky - wait 300 ms before reading the message buffer
+    const realName = bot.systemMessageBuffer.at(-1).split(" ").at(-1)
+    bot.knownNicknames.set(toERN, realName) // TODO: CACHE INVALIDATION!!!
+    return realName
+}
+
+module.exports = {
+    getRealUsername: getRealUsername,
+}

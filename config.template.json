@@ -1,0 +1,9 @@
+{
+    "host": "server hostname",
+    "auth": "microsoft/mojang/offline",
+    "username": "bot username",
+    "version": "server version",
+
+    "prefix": "command prefix",
+    "owner": "owner username"
+}
