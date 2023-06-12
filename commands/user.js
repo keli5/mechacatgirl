@@ -7,7 +7,7 @@ module.exports = {
         console.log(senderNickname)
 
         util.getRealUsername(bot, args[0] || senderNickname).then(value => {
-            value == "found." ? bot.chat("&cInvalid user!") : bot.chat(value)
+            value == "found." ? bot.chat("&cNo user found!") : bot.chat(value)
         })
         
     }
