@@ -9,8 +9,6 @@ module.exports = {
         })*/
         
         value = await util.getRealUsername(bot, args[0] || senderNickname)
-        owner = await util.nickIsBotOwner(bot, args[0] || senderNickname)
         bot.chat(value || "No user found!")
-        bot.chat(owner.toString())
     }
 }
