@@ -3,13 +3,24 @@ const execSync = require("child_process").execSync
 
 module.exports = {
     name: 'help',
-    description: 'example command',
+    description: 'view list of commands, or help for a specific command',
     async execute(bot, message, args, senderNickname) {
+        let command = null;
         const revHash = execSync("git rev-parse --short HEAD")
             .toString()
             .trim()
 
-        bot.chat("mechacatgirl " + revHash)
-        bot.chat("commands: " + [...bot.commands.keys()].join(", "))
+        if (!args[0]) {
+            bot.chat("mechacatgirl " + revHash)
+            bot.chat("commands: " + [...bot.commands.keys()].join(", "))
+            return;
+        }
+        try {
+            command = bot.commands.get(args[0]) || bot.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(args[0]));
+        } catch {
+            return bot.chat("&cNo command found by this name.")
+        }
+
+        bot.chat(`${command.name} ○ ${command.description} ○ usage: ${bot.config.prefix}${command.name}${command.usage || ""}`)
     }
 }
