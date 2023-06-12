@@ -6,13 +6,13 @@ const mineflayer = import("mineflayer")
  * @param {string} messagepart Everything before the >> of a TFM message
  */
     
-async function getRealUsername(bot, messagepart) {
+async function getRealUsername(bot, messagepart, use_cache = true) {
     //const toERN = messagepart.split(" ").at(-1)
     //console.log(messagepart)
     //console.log
     const toERN = messagepart.split(" ").at(-1).substring(0, 50) // prevent sending a massive message
     const cached = bot.knownNicknames.get(toERN) || undefined
-    if (cached) {
+    if (cached && use_cache) {
         return cached
     }
     bot.chat("/erealname " + toERN)
