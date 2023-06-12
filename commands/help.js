@@ -22,6 +22,6 @@ module.exports = {
             return bot.chat("&cNo command found by this name.")
         }
 
-        bot.chat(`${command.name} ○ ${command.description} ○ usage: ${bot.config.prefix}${command.name}${command.usage || ""}`)
+        bot.chat(`&a${command.name} &f-- &a${command.description} &f-- &ausage: ${bot.config.prefix}${command.name} ${command.usage || ""}`)
     }
 }
